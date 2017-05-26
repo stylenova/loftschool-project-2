@@ -1,4 +1,4 @@
-$container-width: 940;
+$container-width: 940px;
 // styles
 html,
 body {
@@ -28,7 +28,7 @@ body {
 .wrapper {
 	position: relative;
 	overflow: hidden;
-	min-width: $container-width + 20px;
+	min-width: $container-width;
 	height: 100%;
 }
 
@@ -80,7 +80,7 @@ p {
 
 footer {
 	position: relative;
-	min-width: $container-width + 20;
+	min-width: $container-width;
 }
 
 * {
