@@ -32,6 +32,7 @@ const moduleJS  = [
 'app/js/accordionVertical.js',
 'app/js/accordionHorizotal.js',
 'app/js/onePageScroll.js',
+'app/js/feedbackForm.js',
 'app/js/fancyapps.js',
 'app/js/googleMap.js',
 'app/js/main.js'
