@@ -1,0 +1,26 @@
+
+
+.owl-buttons {
+  position: absolute;
+  top:  50%;
+
+  width: 100%;
+
+  .owl-prev {
+    position: absolute;
+    left: $posNavSliderHor;
+    transform: rotate(90deg);
+  }
+
+  .owl-next {
+    position: absolute;
+    right: $posNavSliderHor;
+    transform: rotate(-90deg);
+  }
+}
+
+.owl-theme .owl-controls .owl-buttons {
+  div {
+    background: none;
+  }
+}

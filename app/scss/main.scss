@@ -1,0 +1,33 @@
+//colors
+
+$orange: #e45028;
+$yellow: #f9b43b;
+$black: #2f3234;
+$red: #e35028;
+
+//layout Owl carusel
+$posNavSliderHor: -50px;
+
+// setups
+@import "misc/_normalize.scss";
+@import "misc/_mixins.scss";
+@import "misc/_fonts.scss";
+@import "misc/_layout.scss";
+
+// blocks
+@import "misc/_common.scss";
+@import "blocks/_header.scss";
+@import "blocks/_hero.scss";
+@import "blocks/_best.scss";
+@import "blocks/_burgers.scss";
+@import "blocks/_team.scss";
+@import "blocks/_menu.scss";
+@import "blocks/_reviews.scss";
+@import "blocks/_order.scss";
+@import "blocks/_map.scss";
+
+// customization Owl carousel
+@import "layout/_castOwlCust.scss";
+
+//popup
+@import "layout/_popup.scss";

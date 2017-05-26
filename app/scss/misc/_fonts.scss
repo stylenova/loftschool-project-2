@@ -1,0 +1,61 @@
+@font-face {
+	font-family: 'Gagalin-Regular';
+	src: url('../fonts/gagalin-regular-webfont.woff') format('woff'),
+	url('../fonts/gagalin-regular-webfont.svg#gagalin-regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lifehack-Medium';
+	src: url('../fonts/lifehack_medium-webfont.woff') format('woff'),
+	url('../fonts/lifehack_medium-webfont.svg#lifehack_medium-webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Ubuntu-Light';
+	src: url('../fonts/ubuntu-light-webfont.woff') format('woff'),
+	url('../fonts/ubuntu-light-webfont.svg#ubuntu-light-webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Ubuntu-Medium';
+	src: url('../fonts/ubuntu-medium-webfont.woff') format('woff'),
+	url('../fonts/ubuntu-medium-webfont.svg#ubuntu-medium-webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'ubuntubold';
+	src: url('../fonts/ubuntu-b-webfont.woff') format('woff'),
+	url('../fonts/ubuntu-b-webfont.svg#ubuntubold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin gagalin() {
+	font-family: 'Gagalin-Regular';
+}
+
+@mixin ubuntu($style: light) {
+	@if $style == light {
+		font-family: 'Ubuntu-Light';
+	}
+
+	@if $style == medium {
+		font-family: 'Ubuntu-Medium';
+	}
+
+	@if $style == bold {
+		font-family: 'ubuntubold';
+	}
+}
+
+@mixin lifehack() {
+	font-family: 'Lifehack-Medium';
+}
