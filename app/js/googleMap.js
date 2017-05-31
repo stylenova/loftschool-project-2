@@ -9,37 +9,80 @@ var googleMap = (function () {
 })();
 
 
-// When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
+var mapGoogle = (function () {
+  var init = function () {
+    var uluru = {
+      lat: 51.495663,
+      lng: 31.299996
+    };
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: uluru,
+      scrollwheel: false      
+    });
+    var icons = {
+      position: {
+        icon: {
+          url: './img/icons/map-marker.svg',
+          size: new google.maps.Size(40, 50),
+          scaledSize: new google.maps.Size(40, 50)
+        }
+      },
+      logo: {
+        icon: {
+          url: './img/icons/map-marker.svg',
+          size: new google.maps.Size(37, 45),
+          scaledSize: new google.maps.Size(37, 45)
+        }
+      }
+    };
+    var features = [{
+        position: new google.maps.LatLng(51.495663, 31.299996),
+        type: 'position',
+        contentString: 'First', // Тултип
+        content: 'First market' // балун
+      },
+      {
+        position: new google.maps.LatLng(51.502889, 31.311918),
+        type: 'position',
+        contentString: 'Second',
+        content: 'Second market'
+      },
+      {
+        position: new google.maps.LatLng(51.498655, 31.278047),
+        type: 'logo',
+        contentString: 'Third',
+        content: 'Third market'
+      }
+    ];
 
-function init() {
-  // Basic options for a simple Google Map
-  // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-  var mapOptions = {
-    // How zoomed in you want the map to start at (always required)
-    // Какое увеличение вы хотите видеть при старте карты (всегда обязательно)
-    zoom: 15,
-    // The latitude and longitude to center the map (always required)
-    // Ширина и долгота центра каты (всегда обязательно)
-    center: new google.maps.LatLng(51.495663, 31.299996), // New York
-    // Отключение скрола
-    scrollwheel: false
+    var infowindow = new google.maps.InfoWindow();
+
+    features.forEach(function (feature) {
+      var marker = new google.maps.Marker({
+        position: feature.position,
+        icon: icons[feature.type].icon,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        title: feature.contentString
+      });
+      marker.addListener('click', function () {
+        infowindow.setContent(feature.content);
+        infowindow.open(map, marker);
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function () {
+          marker.setAnimation(null);
+        }, 1400);
+      });
+    });
   };
 
-  var image = 'img/icons/map-marker.svg';
+  return {
+    init: init
+  };
+})();
 
-  // Get the HTML DOM element that will contain your map 
-  // We are using a div with id="map" seen below in the <body>
-  // Мы используем div с id="map", видно ниже в <body>
-  var mapElement = document.getElementById('map');
 
-  // Create the Google Map using our element and options defined above
-  var map = new google.maps.Map(mapElement, mapOptions);
-
-  // Let's also add a marker while we're at it
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(51.495663, 31.299996),
-    map: map,
-    icon: image
-  });
+if ($('#map').length) {
+  google.maps.event.addDomListener(window, 'load', mapGoogle.init);
 }
