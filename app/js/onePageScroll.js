@@ -32,6 +32,8 @@ var onePageScroll = (function () {
     setTimeout(function () {
       inScroll = false;
 
+      $('#order-form').trigger('reset');
+
       $('.fixed-menu__item').eq(sectionEq).addClass('active').siblings().removeClass('active');
     }, 1300);
 

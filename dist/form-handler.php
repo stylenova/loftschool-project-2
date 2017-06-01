@@ -33,10 +33,12 @@ $mail = new PHPMailer;
 	$mail->AltBody = 'Привет, это тестовое письмо, как связь, как сам';
 
 	if(!$mail->send()) {
-		$mydata['status'] = 'Message could not be sent.';
-		$mydata['status'] .= 'Mailer Error: ' . $mail->ErrorInfo;
+		$mydata['mes'] = 'Message could not be sent.';
+		$mydata['mes'] .= 'Mailer Error: ' . $mail->ErrorInfo;
+		$mydata['status'] = 'error';
 	} else {
-		$mydata['status'] = 'Message has been sent';
+		$mydata['mes'] = 'Message has been sent';
+		$mydata['status'] = 'OK';
 	}
 
 echo json_encode($mydata);
