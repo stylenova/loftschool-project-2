@@ -32,21 +32,26 @@ const moduleJS  = [
 'app/js/accordionVertical.js',
 'app/js/accordionHorizotal.js',
 'app/js/onePageScroll.js',
+'app/js/validation.js',
+'app/js/feedbackForm.js',
 'app/js/fancyapps.js',
 'app/js/googleMap.js',
+// 'app/js/ajaxRequest.js',
 'app/js/main.js'
 ];
 
 const vendorJS = [
 'app/bower/jquery/dist/jquery.min.js',
 'app/bower/fancyBox/dist/jquery.fancybox.min.js',
-'app/bower/owl-carousel/owl-carousel/owl.carousel.js'
+'app/bower/owl-carousel/owl-carousel/owl.carousel.js',
+'node_modules/qtip2/dist/jquery.qtip.min.js'
 ];
 
 const vendorCss = [
 'app/bower/normalize-css/normalize.css',
 'app/bower/fancyBox/dist/jquery.fancybox.min.css',
 'app/bower/owl-carousel/owl-carousel/owl.carousel.css',
+'node_modules/qtip2/dist/jquery.qtip.css',
 'app/bower/owl-carousel/owl-carousel/owl.theme.css'
 ];
 
@@ -72,7 +77,7 @@ gulp.task('browser-sync', [
 
 // перенос страничек html
 gulp.task('html', function(){
-  return gulp.src('app/pages/*.html')
+  return gulp.src(['app/pages/*.html', 'app/pages/*.php'])
   .pipe(gulp.dest('dist'))
   })
 

@@ -30,6 +30,7 @@ body {
 	overflow: hidden;
 	min-width: $container-width;
 	height: 100%;
+	min-width: 650px;
 }
 
 .maincontent {
@@ -85,4 +86,16 @@ footer {
 
 * {
 	box-sizing: border-box;
+}
+
+.has-error {
+  background-color: #ffebeb !important;
+  border-color: #f97e76 !important;
+}
+
+.qtip-mystyle {
+  background-color: #f97e76;
+  border-color: #f97e76;
+  color: #ffffff;
+  font-size: 13px;
 }
